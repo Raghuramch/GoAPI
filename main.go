@@ -16,8 +16,11 @@ func main() {
    http.HandleFunc("/about me", func(w http.ResponseWriter, r *http.Request){
             fmt.Fprintf(w, "Hello,Stop knowing about and wasting time do something usefull ", html.EscapeString(r.URL.Path))
 })
-   http.HandleFunc("/about Us", func(w http.ResponseWriter, r *http.Request){
-            fmt.Fprintf(w, "Hello,Stop knowing about and wasting time do something useful and tech", html.EscapeString(r.URL.Path))
+   http.Handlefghttp.HandleFunc("/about me", func(w http.ResponseWriter, r *http.Request){
+            fmt.Fprintf(w, "Hello,Stop knowing about and wasting time do somethin$
+})
+   http.Handlefghttp.HandleFunc("/about you", func(w http.ResponseWriter, r *http.Request){
+            fmt.Fprintf(w, "I dont know anything about you", html.EscapeString(r.URL.Path))
 })
 
 
