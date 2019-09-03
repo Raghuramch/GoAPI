@@ -19,4 +19,4 @@ RUN go build -o main .
 # our newly created binary executable
 CMD ["/app/main"]
 
-EXPOSE 8080
+
