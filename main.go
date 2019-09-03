@@ -1,4 +1,3 @@
-# this is to check the build is working or not
 package main
 
 import (
