@@ -1,27 +1,31 @@
-package main
-
 import (
-	"github.com/gorilla/mux"
-	"go-contacts/app"
-	"os"
-	"fmt"
-	"net/http"
+    "fmt"
+    "net/http"
 )
-
+ 
+// CREATE A HTTP SERVER
+ 
+// http.ResponseWriter assembles the servers response and writes to 
+// the client
+// http.Request is the clients request
+func handler(w http.ResponseWriter, r *http.Request) {
+ 
+	// Writes to the client
+    fmt.Fprintf(w, "Hello World\n")
+}
+ 
+func handler2(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "Hello Earth\n")
+}
+ 
 func main() {
-
-	router := mux.NewRouter()
-	router.Use(app.JwtAuthentication) //attach JWT auth middleware
-
-	port := os.Getenv("PORT") //Get port from .env file, we did not specify any port so this should return an empty string when tested locally
-	if port == "" {
-		port = "8000" //localhost
-	}
-
-	fmt.Println(port)
-
-	err := http.ListenAndServe(":" + port, router) //Launch the app, visit localhost:8000/api
-	if err != nil {
-		fmt.Print(err)
-	}
+ 
+	// Calls for function handlers output to match the directory /
+    http.HandleFunc("/", handler)
+    
+    // Calls for function handler2 output to match directory /earth
+    http.HandleFunc("/earth", handler2)
+    
+    // Listen to port 8080 and handle requests
+    http.ListenAndServe(":8080", nil)
 }
