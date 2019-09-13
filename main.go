@@ -23,6 +23,9 @@ func handler2(w http.ResponseWriter, r *http.Request) {
 func handler3(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintf(w, "<html><body>Hello <h1>James Cameron</h1></body></html>\n")
 }
+func handler4(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "<html><body>Hello <h1>Sandeep and raghuram</h1></body></html>\n")
+}
  
 func main() {
  
@@ -34,6 +37,8 @@ func main() {
     
     // Calls for function handler3 output to match directory /sandeep
     http.HandleFunc("/sandeep", handler3)
+
+    http.HandleFunc("/raghuram", handler4)
     
     // Listen to port 8080 and handle requests
     http.ListenAndServe(":8080", nil)
