@@ -21,7 +21,7 @@ func handler2(w http.ResponseWriter, r *http.Request) {
 }
  
 func handler3(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprintf(w, "Hello <h1>James Cameron</h1>\n")
+    fmt.Fprintf(w, "<html>Hello <h1>James Cameron</h1></html>\n")
 }
  
 func main() {
